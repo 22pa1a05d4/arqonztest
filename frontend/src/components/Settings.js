@@ -26,7 +26,7 @@ const Settings = () => {
 
   const fetchSettings = async () => {
     try {
-      const response = await axios.get('/api/settings');
+      const response = await axios.get('/settings');
       setSettings(response.data);
     } catch (error) {
       console.error('Error fetching settings:', error);
@@ -55,7 +55,7 @@ const Settings = () => {
     setMessage('');
     
     try {
-      const response = await axios.put('/api/settings', settings);
+      const response = await axios.put('/settings', settings);
       setSettings(response.data);
       
       // Update user context with new settings
