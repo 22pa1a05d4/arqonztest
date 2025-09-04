@@ -2,17 +2,17 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://arqonztest.onrender.com/api",
+  baseURL: process.env.REACT_APP_API_URL || "https://argonztest.onrender.com/api",
   withCredentials: true, // keep cookies/sessions if needed
 });
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token"); // assuming you store it here
+  const token = localStorage.getItem("token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   
- console.log("📌 API Request:", config.baseURL + config.url, "Headers:", config.headers); // DEBUG
+  console.log("📌 API Request:", config.baseURL + config.url, "Headers:", config.headers); // DEBUG
   return config;
 });
 

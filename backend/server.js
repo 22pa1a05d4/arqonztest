@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 const allowedOrigins = [
   process.env.FRONTEND_URL || "http://localhost:3000",
-  "https://arqonztest-ds8y.vercel.app"
+  "https://argonztest-ds8y.vercel.app"
 ];
 
 app.use(cors({
