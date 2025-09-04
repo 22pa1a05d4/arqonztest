@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
+import api from '../api';
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState('general');
@@ -26,7 +27,7 @@ const Settings = () => {
 
   const fetchSettings = async () => {
     try {
-      const response = await axios.get('/settings');
+      const response = await api.get('/settings');
       setSettings(response.data);
     } catch (error) {
       console.error('Error fetching settings:', error);
@@ -55,7 +56,7 @@ const Settings = () => {
     setMessage('');
     
     try {
-      const response = await axios.put('/settings', settings);
+      const response = await api.put('/settings', settings);
       setSettings(response.data);
       
       // Update user context with new settings
