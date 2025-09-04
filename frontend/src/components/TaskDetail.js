@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Layout from './Layout';
 import axios from 'axios';
+import api from '../api';
 import { 
   FiUsers, 
   FiClock, 
@@ -25,7 +26,7 @@ const TaskDetail = () => {
 
   const fetchTask = async () => {
     try {
-      const response = await axios.get(`/tasks/${id}`);
+      const response = await api.get(`/tasks/${id}`);
       setTask(response.data);
     } catch (error) {
       console.error('Error fetching task:', error);
