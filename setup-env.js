@@ -7,7 +7,7 @@ console.log('🔧 Setting up environment configuration for deployment...\n');
 
 // Frontend .env file
 const frontendEnvPath = path.join(__dirname, 'frontend', '.env');
-const frontendEnvContent = `REACT_APP_API_URL=https://argonztest.onrender.com/api
+const frontendEnvContent = `REACT_APP_API_URL=https://arqonztest.onrender.com/api
 `;
 
 // Backend .env file
@@ -24,7 +24,7 @@ HOST=0.0.0.0
 NODE_ENV=production
 
 # Frontend URL (for CORS)
-FRONTEND_URL=https://argonztest-ds8y.vercel.app
+FRONTEND_URL=https://arqonztest-ds8y.vercel.app
 `;
 
 try {

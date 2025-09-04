@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "https://argonztest.onrender.com/api",
+  baseURL: process.env.REACT_APP_API_URL || "https://arqonztest.onrender.com/api",
   withCredentials: true, // keep cookies/sessions if needed
 });
 
