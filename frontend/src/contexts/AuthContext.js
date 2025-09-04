@@ -4,7 +4,7 @@ import api from "../api";
 
 // Set up axios base URL
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
-axios.defaults.baseURL = API_BASE_URL;
+api.defaults.baseURL = API_BASE_URL;
 
 const AuthContext = createContext();
 
@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     }
   }, []);
 
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         } catch (error) {
           console.error('Auth check failed:', error);
           localStorage.removeItem('token');
-          delete axios.defaults.headers.common['Authorization'];
+          delete api.defaults.headers.common['Authorization'];
         }
       }
       setLoading(false);
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
       const { token, user } = response.data;
       
       localStorage.setItem('token', token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setUser(user);
       
       return { success: true };
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }) => {
       const { token, user } = response.data;
       
       localStorage.setItem('token', token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
       setUser(user);
       
       return { success: true };
