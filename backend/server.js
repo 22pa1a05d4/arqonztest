@@ -12,9 +12,13 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: [
+    process.env.FRONTEND_URL || 'http://localhost:3000',
+    'https://arqonztest-ds8y.vercel.app'  // Add your deployed frontend
+  ],
   credentials: true
 }));
+
 app.use(express.json({ extended: false }));
 
 // Routes
