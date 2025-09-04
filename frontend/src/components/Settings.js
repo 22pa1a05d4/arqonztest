@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
-import axios from 'axios';
+
 import { useAuth } from '../contexts/AuthContext';
 import api from '../api';
 
