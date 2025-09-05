@@ -8,16 +8,9 @@ const router = express.Router();
 
 // Generate JWT Token
 const generateToken = (userId) => {
-  const secret = process.env.JWT_SECRET || 'fallback_secret';
-  console.log('🔑 Generating token with secret:', secret ? 'SET' : 'NOT SET');
-  console.log('🔑 Token for user ID:', userId);
-  
-  const token = jwt.sign({ userId }, secret, {
+  return jwt.sign({ userId }, process.env.JWT_SECRET || 'fallback_secret', {
     expiresIn: '7d'
   });
-  
-  console.log('🔑 Generated token length:', token.length);
-  return token;
 };
 
 // @route   POST /api/auth/register
